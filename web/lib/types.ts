@@ -2,6 +2,7 @@ export interface SourceMeta {
   source_file: string | null;
   page_number: number | null;
   chunk_id: string;
+  text: string;
 }
 
 export interface ChatResponse {
@@ -17,4 +18,11 @@ export interface ChatMessage {
   content: string;
   sources?: SourceMeta[];
   processingTime?: number;
+}
+
+export interface SystemStatus {
+  cpu_percent: number;
+  ram_used_gb: number;
+  ram_total_gb: number;
+  ram_percent: number;
 }

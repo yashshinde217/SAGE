@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ChatPanel from "@/components/ChatPanel";
 import DocumentPanel from "@/components/DocumentPanel";
+import TelemetryHUD from "@/components/TelemetryHUD";
 import type { SourceMeta } from "@/lib/types";
 
 export default function Home() {
@@ -33,6 +34,8 @@ export default function Home() {
           <DocumentPanel sources={activeSources} />
         </div>
       </div>
+
+      <TelemetryHUD />
     </main>
   );
 }

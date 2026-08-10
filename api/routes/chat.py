@@ -25,6 +25,7 @@ class SourceMeta(BaseModel):
     source_file: str | None
     page_number: int | None
     chunk_id: str
+    text: str
 
 
 class GenerateResponse(BaseModel):
@@ -64,6 +65,7 @@ async def generate(payload: GenerateRequest) -> GenerateResponse:
             source_file=c.get("source_file"),
             page_number=c.get("page_number"),
             chunk_id=c["chunk_id"],
+            text=c.get("text", ""),
         )
         for c in chunks
     ]

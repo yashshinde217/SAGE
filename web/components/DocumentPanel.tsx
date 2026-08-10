@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { BookOpen, Hash } from "lucide-react";
 import type { SourceMeta } from "@/lib/types";
 
@@ -45,7 +47,14 @@ export default function DocumentPanel({ sources }: DocumentPanelProps) {
                   </span>
                 )}
               </div>
-              <div className="text-[10px] font-mono text-white/25 truncate">
+
+              <div className="prose prose-invert prose-sm max-w-none prose-p:my-1 text-white/70">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {source.text || "_No text available for this chunk._"}
+                </ReactMarkdown>
+              </div>
+
+              <div className="mt-2 text-[10px] font-mono text-white/25 truncate">
                 {source.chunk_id}
               </div>
             </motion.div>
