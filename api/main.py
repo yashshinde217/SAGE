@@ -2,14 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import get_settings
-from routes import chat
+from routes import chat, documents
 
 settings = get_settings()
 
 app = FastAPI(
     title="SAGE API",
     description="Self-Hosted AI for Grounded Explanation — native backend service",
-    version="0.2.0",
+    version="0.3.0",
 )
 
 app.add_middleware(
@@ -21,6 +21,7 @@ app.add_middleware(
 )
 
 app.include_router(chat.router)
+app.include_router(documents.router)
 
 
 @app.get("/health")

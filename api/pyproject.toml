@@ -5,10 +5,15 @@ description = "SAGE FastAPI backend — native service"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "chromadb>=1.5.9",
+    "docling>=2.119.0",
+    "einops>=0.8.2",
     "fastapi>=0.141.1",
     "ollama>=0.6.2",
     "pydantic-settings>=2.15.0",
     "python-dotenv>=1.2.2",
+    "python-multipart>=0.0.32",
+    "sentence-transformers>=5.7.0",
     "uvicorn[standard]>=0.52.1",
 ]
 
